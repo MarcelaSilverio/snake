@@ -4,7 +4,6 @@
 #include <ncurses.h>
 #include <time.h>
 #include "snake.h"
-#include <../Bibliotecas/raiz.h>
 
 int main(){
     inicializa();
@@ -12,13 +11,13 @@ int main(){
         desenha();
         entrada();
         logica();
-        printf("again\n\r");
     }
     finaliza();
 }
 
 void inicializa(){ //inicializacao do jogo
-    initscr(); //biblioteca ncurses
+  //  initscr(); biblioteca ncurses
+  //  noecho();
     time_t tempo; 
     fimJogo = 0; //falso
     direcao = STOP;
@@ -78,13 +77,21 @@ void desenha(){ //apresentacao da interface para o usuario
 
 void entrada(){ //captura e os dados do usuario
 
+
     //w para cima
     //a para esquerda
     //d para a direita
     //s para baixo
     //x para terminar o jogo
 
-    switch (getchar()){
+    char comando;
+    
+    //comando = wgetch(stdscr);
+    comando = getchar();
+
+    printf("teste1\n\r");
+
+    switch (comando){
         case 'w':
             direcao = CIMA;
             break;
@@ -155,5 +162,5 @@ void finaliza(){ //fincalizacao do jogo
     system("clear");
     printf("\n\n\n\r *** FIM DE JOGO ***\n\n\n\r");
     printf(" Sua pontuação foi: %d\n\n\n\r", pontos);
-    endwin();
+    //endwin();
 }
