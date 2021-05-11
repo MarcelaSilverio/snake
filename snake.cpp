@@ -102,6 +102,7 @@ void entrada(){ //captura e os dados do usuario
     
     //comando = wgetch(stdscr);
     comando = getchar();
+    scanf("%*c");
     //comando = cin.get();
 
     switch (comando){
@@ -208,8 +209,42 @@ void logica(){ //executa a logica do jogo
 
 void finaliza(){ //finalizacao do jogo
     
+    FILE *arquivo;
+    char nome[20];
+    int leitura = 0, recorde = 0;
+
+   /* struct recordes{
+        char nome[20];
+        int pontos;
+    };
+
+    recordes scores[5];*/
+
+
+    if( (arquivo = fopen("recordes.txt", "r+")) == NULL){
+        printf("Erro ao criar o arquivo\n");
+        exit(1);
+    }
+        
+    leitura = fscanf(arquivo, "%d", &recorde);
+
+    if(!leitura){
+        printf("Erro ao ler o arquivo\n");
+        exit(2);
+    }
+
     printf("\n\n\n\r *** FIM DE JOGO ***\n\n\n\r");
-    printf(" Sua pontuação foi: %d\n\n\n\r", pontos);
-    
+    //printf(" Sua pontuação foi: %d\n\n\n\r", pontos);
+
+    if(pontos > recorde){
+        printf("Parabéns! Você teve um novo recorde: %d\n\n\n", pontos);
+        rewind(arquivo);
+        fprintf(arquivo,"%d",pontos);
+    }else{
+        printf("Sua pontuação foi de: %d.\n\r", pontos);
+        printf("A sua maior pontuação até o momento: %d\n\n\n\r", recorde);
+    }
+
+    fclose(arquivo);
     //endwin();
 }
