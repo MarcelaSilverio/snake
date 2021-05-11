@@ -1,4 +1,5 @@
-//Arquivo cabeçalho, *livraria local
+//Arquivo cabeçalho
+
 #ifndef SNAKE_HEADER_
 #define SNAKE_HEADER_
 
