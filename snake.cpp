@@ -45,7 +45,7 @@ void desenha(){ //apresentacao da interface para o usuario
     // #               #
     // ######...########
 
-    int coluna, linha, flag;
+    int coluna, linha, flag = 0;
     system("clear");
 
     for (coluna = 0; coluna <= largura+2; coluna++){ //imprime a primeira linha
