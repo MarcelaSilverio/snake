@@ -9,14 +9,16 @@
 #define BAIX 4
 
 #define MURO '#' 
-#define COBR '(' 
-#define FRUT 'O' 
+#define COBR 'O' 
+#define FRUT '@' 
 
 const int largura = 20;
 const int altura = 20;
 
 int fimJogo;
 int x, y, frutaX, frutaY, pontos, direcao;
+int restoCobraX[100], restoCobraY[100];
+int tamanhoRestoCobra;
 
 void inicializa();
 void desenha();
