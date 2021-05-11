@@ -104,8 +104,6 @@ void entrada(){ //captura e os dados do usuario
     comando = getchar();
     //comando = cin.get();
 
-    printf("teste1\n\r");
-
     switch (comando){
         case 'w':
             direcao = CIMA;
@@ -143,15 +141,20 @@ void entrada(){ //captura e os dados do usuario
 
 void logica(){ //executa a logica do jogo
 
-    int restoCobraAnteriorX = restoCobraX[0];
-    int restoCobraAnteriorY = restoCobraY[0];
+    int restoCobraAnteriorX;
+    int restoCobraAnteriorY;
     int auxX, auxY;
 
-    restoCobraX[0] = x;
-    restoCobraY[0] = y;
+    if(tamanhoRestoCobra == 1){
+        restoCobraX[0] = x;
+        restoCobraY[0] = y;
+    }
 
-    for(int cont = 0; cont < tamanhoRestoCobra; cont++){
-        
+    restoCobraAnteriorX = x;
+    restoCobraAnteriorY = y;
+
+    for(int cont = 0; cont <tamanhoRestoCobra; cont++){
+
         auxX = restoCobraX[cont];
         auxY = restoCobraY[cont];
 
@@ -160,6 +163,7 @@ void logica(){ //executa a logica do jogo
 
         restoCobraAnteriorX = auxX;
         restoCobraAnteriorY = auxY;
+
     }
 
     switch (direcao){
@@ -194,14 +198,18 @@ void logica(){ //executa a logica do jogo
         pontos = pontos + 10;
         frutaX = rand() % largura + 1;
         frutaY = rand() % altura + 1;
+
         tamanhoRestoCobra++;
+
+
     }
 
 }
 
 void finaliza(){ //finalizacao do jogo
-    //system("clear");
+    
     printf("\n\n\n\r *** FIM DE JOGO ***\n\n\n\r");
     printf(" Sua pontuação foi: %d\n\n\n\r", pontos);
+    
     //endwin();
 }
