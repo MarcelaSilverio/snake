@@ -55,7 +55,6 @@ void desenha(){ //apresentacao da interface para o usuario
     for (linha = 1; linha <= altura+1; linha++){ //imprime o meio do tabuleiro
         
         printf("\n\r");
-        flag = 0; //falso
 
         for(coluna = 0; coluna <= largura+2; coluna++){
             if(coluna == 0 || coluna == largura+2){ //se for a primeira ou a ultima coluna, imprime muro
@@ -74,6 +73,7 @@ void desenha(){ //apresentacao da interface para o usuario
                 if(flag == 0){
                     printf(" ");
                 }
+                flag = 0; //falso
             }
         }
 
