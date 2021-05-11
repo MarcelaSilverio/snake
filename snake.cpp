@@ -66,7 +66,7 @@ void desenha(){ //apresentacao da interface para o usuario
             }else{
                 for(int cont = 0; cont <tamanhoRestoCobra; cont++){
                     if(restoCobraX[cont] == coluna && restoCobraY[cont] == linha){ //corpo cobra
-                        printf("%c", COBR);
+                        printf("%c", 'o');
                         flag = 1; //verdadeiro
                     }
                 }
