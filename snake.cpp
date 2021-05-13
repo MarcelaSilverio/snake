@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ncurses.h>
 #include <time.h>
+#include <SFML/Graphics.hpp>
 #include "snake.h"
 
 int main(){
@@ -96,8 +96,25 @@ void entrada(){ //captura e os dados do usuario
     //s para baixo
     //x para terminar o jogo
 
-    char comando;
+    /*char comando;*/
     
+    if((sf::Keyboard::isKeyPressed(sf::Keyboard::Up))){
+        direcao = CIMA;
+    }
+
+    if((sf::Keyboard::isKeyPressed(sf::Keyboard::Down))){
+         direcao = BAIX;
+    }
+
+    if((sf::Keyboard::isKeyPressed(sf::Keyboard::Left))){
+         direcao = ESQD;
+    }
+
+    if((sf::Keyboard::isKeyPressed(sf::Keyboard::Right))){
+         direcao = DIRT;
+    }
+
+    /*
     comando = getchar();
     scanf("%*c");
 
@@ -133,6 +150,7 @@ void entrada(){ //captura e os dados do usuario
             direcao = 1;
             break; 
     }
+    */
 }
 
 
