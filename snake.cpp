@@ -15,8 +15,6 @@ int main(){
 }
 
 void inicializa(){ //inicializacao do jogo
-  //  initscr(); biblioteca ncurses
-  //  noecho();
     time_t tempo; 
     fimJogo = 0; //falso
     tamanhoRestoCobra = 0;
@@ -100,10 +98,8 @@ void entrada(){ //captura e os dados do usuario
 
     char comando;
     
-    //comando = wgetch(stdscr);
     comando = getchar();
     scanf("%*c");
-    //comando = cin.get();
 
     switch (comando){
         case 'w':
@@ -213,15 +209,7 @@ void finaliza(){ //finalizacao do jogo
     char nome[20];
     int leitura = 0, recorde = 0;
 
-   /* struct recordes{
-        char nome[20];
-        int pontos;
-    };
-
-    recordes scores[5];*/
-
-
-    if( (arquivo = fopen("recordes.txt", "r+")) == NULL){
+    if( (arquivo = fopen("records.txt", "r+")) == NULL){
         printf("Erro ao criar o arquivo\n");
         exit(1);
     }
@@ -234,7 +222,6 @@ void finaliza(){ //finalizacao do jogo
     }
 
     printf("\n\n\n\r *** FIM DE JOGO ***\n\n\n\r");
-    //printf(" Sua pontuação foi: %d\n\n\n\r", pontos);
 
     if(pontos > recorde){
         printf("Parabéns! Você teve um novo recorde: %d\n\n\n", pontos);
@@ -246,5 +233,4 @@ void finaliza(){ //finalizacao do jogo
     }
 
     fclose(arquivo);
-    //endwin();
 }
